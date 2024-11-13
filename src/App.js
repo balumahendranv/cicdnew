@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          WELCOME TO EASYDEPLOY BALU
+          WELCOME TO EASYDEPLOY BALU CI/CD TESTING
         </p>
         <a
           className="App-link"

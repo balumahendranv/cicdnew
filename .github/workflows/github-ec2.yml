@@ -42,5 +42,5 @@ jobs:
             npm install
             sudo npm run build
             cd build
-            sudo mv * /var/www/html
+            sudo cp -r * /var/www/html
             sudo systemctl restart httpd

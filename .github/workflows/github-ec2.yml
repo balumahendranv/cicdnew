@@ -37,4 +37,3 @@ jobs:
             sudo npm run build
             cd build
             sudo cp -r * /var/www/html
-            sudo systemctl restart httpd

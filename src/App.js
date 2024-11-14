@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          WELCOME2 TO EASYDEPLOY REACTJS
+          WELCOME2 TO EASY DEPLOY REACTJS
         </p>
         <a
           className="App-link"

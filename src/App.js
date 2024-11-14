@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          WELCOME2 TO NOTEASYDEPLOY TESTING
+          WELCOME2 TO NOT EASYDEPLOY
         </p>
         <a
           className="App-link"
@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React Test
         </a>
       </header>
     </div>

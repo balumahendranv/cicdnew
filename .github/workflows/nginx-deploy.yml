@@ -22,6 +22,10 @@ jobs:
           KUBECONFIG: $HOME/.kube/config
 
       - name: 🚀 Deploy NGINX to Kubernetes
+      run: |
+    kubectl apply -f k8s/nodeapp.yaml
+  env:
+    KUBECONFIG: $HOME/.kube/config
         run: |
           kubectl apply -f - <<EOF
           apiVersion: apps/v1

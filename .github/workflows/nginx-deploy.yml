@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      KUBECONFIG: $HOME/.kube/config
 
     steps:
       - name: 🧾 Checkout Code
@@ -18,10 +20,11 @@ jobs:
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
-        env:
-          KUBECONFIG: $HOME/.kube/config
+          echo "🔍 Validating kubeconfig..."
+          kubectl config view
+          kubectl cluster-info
 
-      - name: 🚀 Deploy NGINX to Kubernetes (NodePort)
+      - name: 🚀 Deploy NGINX to Kubernetes
         run: |
           cat <<EOF | kubectl apply -f -
           apiVersion: apps/v1
@@ -60,5 +63,3 @@ jobs:
                 targetPort: 80
                 nodePort: 30080
           EOF
-        env:
-          KUBECONFIG: $HOME/.kube/config

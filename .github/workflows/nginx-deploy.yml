@@ -23,7 +23,6 @@ jobs:
       
       - name: ✅ Verify kubeconfig
         run: |
-          kubectl config current-context
           kubectl cluster-info
           kubectl get nodes
           

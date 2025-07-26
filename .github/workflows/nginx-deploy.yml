@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      KUBECONFIG: $HOME/.kube/config
+      KUBECONFIG_BASE64: $HOME/.kube/config
     
     steps:
       - name: 🧾 Checkout Code

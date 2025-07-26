@@ -10,11 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       KUBECONFIG: $HOME/.kube/config
-    run: |
-    kubectl config current-context
-    kubectl cluster-info
-    kubectl get nodes
-
+    
     steps:
       - name: 🧾 Checkout Code
         uses: actions/checkout@v3
@@ -24,10 +20,13 @@ jobs:
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
-          echo "🔍 Validating kubeconfig..."
-          kubectl config view
+      
+      - name: ✅ Verify kubeconfig
+        run: |
+          kubectl config current-context
           kubectl cluster-info
-
+          kubectl get nodes
+          
       - name: 🚀 Deploy NGINX to Kubernetes
         run: |
           cat <<EOF | kubectl apply -f -
